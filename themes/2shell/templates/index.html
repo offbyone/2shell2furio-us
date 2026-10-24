@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ol class="timeline" aria-label="Shell vulnerability timeline">
+    {% for article in articles | sort(attribute="date") %}
+      <li class="timeline-entry">
+        <span class="timeline-marker" aria-hidden="true"></span>
+        <article class="timeline-card">
+          <time class="timeline-date" datetime="{{ article.date.isoformat() }}">
+            {{ article.locale_date }}
+          </time>
+          <h2 class="timeline-title">{{ article.title }}</h2>
+          <p class="timeline-cves">{{ article.cves }}</p>
+          <div class="timeline-body">
+            {{ article.content }}
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+{% endblock %}

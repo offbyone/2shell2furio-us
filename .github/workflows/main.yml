@@ -1,0 +1,59 @@
+---
+name: Deploy site
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  SITE_BUCKET: 2shell2furio.us
+  CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: extractions/setup-just@v3
+
+      - name: Install mise tools
+        uses: jdx/mise-action@v2
+        with:
+          cache: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v5
+        with:
+          aws-region: us-west-2
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          role-session-name: deploy-2shell2furio-us
+
+      - name: Install Python dependencies
+        run: uv sync --all-groups --locked
+
+      - name: Initialize Terraform for validation
+        run: tofu init -backend=false
+
+      - name: Check the project
+        run: just check
+
+      - name: Generate the production site
+        run: just generate
+
+      - name: Upload the site
+        run: just upload
+
+      - name: Invalidate CloudFront
+        run: just invalidate

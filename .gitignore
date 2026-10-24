@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Pelican
+/cache/
+output/
+
+# Local environment
+.env
+.direnv/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+plan.just
+crash.log
+
+# Agent and editor state
+.superpowers/
+**/.claude/settings.local.json
+.DS_Store
