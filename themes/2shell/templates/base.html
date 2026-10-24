@@ -1,25 +1,35 @@
 <!doctype html>
 <html lang="{{ DEFAULT_LANG }}">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A timeline of real vulnerabilities with Shell names.">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A timeline of real vulnerabilities with Shell names."
+    />
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/site.css">
+    <link
+      rel="stylesheet"
+      href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/site.css"
+    />
   </head>
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <p class="site-kicker">A timeline of real vulnerabilities</p>
         <h1>{{ SITENAME }}</h1>
-        <p class="site-intro">Some vulnerability names become a pattern. These ones actually happened.</p>
+        <p class="site-intro">
+          I think that RCE disclosures have a trope problem
+        </p>
       </div>
     </header>
-    <main>
-      {% block content %}{% endblock %}
-    </main>
+    <main>{% block content %}{% endblock %}</main>
     <footer class="site-footer">
-      <p>Names are funny. Vulnerabilities are not.</p>
+      <p>Mocking these names doesn't mean the bugs aren't real.</p>
+      <p>
+        Thanks to Molly White for inspiring the layout. You should read
+        <a href="https://www.web3isgoinggreat.com/">web3 is going just great</a
+        >.
+      </p>
     </footer>
   </body>
 </html>
