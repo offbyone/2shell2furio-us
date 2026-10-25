@@ -235,7 +235,7 @@ data "aws_iam_policy_document" "github_deployer_trust" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:offbyone/2shell2furio-us:*"]
+      values   = ["repo:offbyone@181693/2shell2furio-us@1432358500:*"]
     }
   }
 }
