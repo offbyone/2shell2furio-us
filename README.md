@@ -77,6 +77,14 @@ The GitHub repository also needs these Actions repository variables:
 Infrastructure changes are applied locally, not by the content deployment
 workflow.
 
+## Traffic reporting
+
+CloudFront's built-in reports provide request volume, top referrers, popular
+objects, and viewer locations at no additional charge. Standard access logs are
+also available in S3 for custom Athena queries. See
+[`docs/traffic-reporting.md`](docs/traffic-reporting.md) for console directions,
+limitations, and copy-pasteable queries.
+
 ## Publish
 
 After Terraform has been applied and `.env` is configured:
