@@ -12,6 +12,56 @@
       rel="stylesheet"
       href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/site.css"
     />
+    <style>
+      .timeline-entry + .timeline-submission {
+        margin-top: 1rem;
+      }
+
+      .timeline-submission {
+        display: block;
+        padding-top: 4rem;
+      }
+
+      .timeline-submission::before {
+        position: absolute;
+        top: 0.6rem;
+        bottom: -6rem;
+        left: 50%;
+        width: 0.3rem;
+        background: var(--background);
+        content: "";
+        transform: translateX(-50%);
+      }
+
+      .timeline-submission .timeline-marker {
+        top: 1.5rem;
+        width: 0.5rem;
+        height: 1.8rem;
+        border: 0;
+        border-radius: 0;
+        background:
+          radial-gradient(circle at center 0.3rem, var(--line) 0.16rem, transparent 0.18rem),
+          radial-gradient(circle at center 0.9rem, var(--line) 0.16rem, transparent 0.18rem),
+          radial-gradient(circle at center 1.5rem, var(--line) 0.16rem, transparent 0.18rem);
+      }
+
+      .timeline-submission .timeline-card {
+        width: min(100%, 28rem);
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      @media (max-width: 44rem) {
+        .timeline-submission {
+          padding-top: 3rem;
+        }
+
+        .timeline-submission::before {
+          left: -2rem;
+          transform: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
