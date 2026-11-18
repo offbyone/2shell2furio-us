@@ -1,6 +1,6 @@
 # 2 Shell 2 Furio.us
 
-A Pelican-generated timeline of real vulnerabilities with “Shell” names. The
+A Pelican-generated timeline of real vulnerabilities with "Shell" names. The
 site is a single static page hosted from a private S3 bucket through CloudFront.
 
 ## Setup
